@@ -28,7 +28,11 @@ public class MovimentoBola : MonoBehaviour
 
         Vector2 posicaoViewport = Camera.main.WorldToViewportPoint(transform.position);
 
-        if (posicaoViewport.x < 0 || posicaoViewport.x > 1)
+        if (posicaoViewport.x < 0 && direcao.x < 0)
+        {
+            direcao = new Vector3(-direcao.x, direcao.y);
+        }
+        if (posicaoViewport.x > 1 && direcao.x > 0)
         {
             direcao = new Vector3(-direcao.x, direcao.y);
         }
